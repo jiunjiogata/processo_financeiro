@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+     position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+
+
+button{
+    font-size: 16px;
+}
+
+
+.panel button{
+    
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+
+.painel{
+    background: blue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(blue, #71c4ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(blue, #71c4ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(blue, #71c4ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(blue, #71c4ff); /* Standard syntax (must be last) */
+}   
+
+.panel-body {
+    padding: 15px;
+    padding-bottom: 0px;
+}
+
+.botao{
+    /*background-color: #039BE5;*/
+    background: blue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(blue, #71c4ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(blue, #71c4ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(blue, #71c4ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(blue, #71c4ff); /* Standard syntax (must be last) */
+    margin: 5px;
+    height: 115px;
+    width: 220px;
+    border-radius: 0px;
+    position: relative;   
+    text-align: center;
+    padding: 5px;
+   
+    
+}
+
+.botao:hover {
+   
+    background: blue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(blue, blue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(blue, blue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(blue, blue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(blue, blue); /* Standard syntax (must be last) */
+}
+.buttonicon{
+    position: relative;
+    top: 0px;
+    right: auto;
+}
+
+.buttontitle{
+    position: relative;
+    bottom: 0px;
+    display:table-cell;
+    vertical-align: bottom;
+    font-size: 25px;
+    color: #ffffff;
+    
+}
+
+
+
+#tudo{ 
+    opacity:0;
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s; /* Safari */
+    overflow: auto;
+    height: 100%;
+}
+
+#tudo h1{
+    text-align: left;
+    margin-left: 60px; 
+    align-items: center;
+}
+
+#containerPrincipal{
+   
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    margin-top: 5px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    margin-top: 5px;
+   
+}
+
+#editar {
+   background-color: #3e7bea;
+    border-color: #3e7bea;
+
+}
+#editar:focus {
+        outline: none;
+}
+
+#editar:hover {
+   background-color: #2562d2;
+    border-color: #2562d2;
+}
+
+#bsubmit {
+    background-color:#e88004;
+    border-color: #e88004;
+    margin-bottom: 5px;
+}
+#bsubmit:focus {
+    outline: none;
+}
+#bsubmit:hover {
+    background-color: #c16500;
+    border-color: #c16500;
+}
+
+#bnovo {
+    background-color:#e88004;
+    border-color: #e88004;
+    
+    float: right;
+    margin-top: 23px;
+    height: 34px;
+}
+#bnovo:focus {
+    outline: none;
+}
+#bnovo:hover {
+    background-color: #c16500;
+    border-color: #c16500;
+}
+
+#search {
+    margin-bottom: 9px;
+}
+
+
+.EditarExcluir {
+    width: 130px;
+    padding-left: 0px!important;
+}
+
+
+
+.growl-container.growl-fixed {
+    position: fixed;
+    right: 0px !important;
+    z-index: 9999;
+    top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    max-width: 100% ;
+}
+
+.table-responsive {
+  overflow-x: initial;
+  min-height: 0.01%; 
+  
+}
+
+#filtrar {
+    margin-top: 23px;
+    height: 34px;
+    margin-left: -5px;
+   
+}
+
+
+
+#filtrarNovo {
+    margin-top: 23px;
+    height: 34px;
+    margin-left: -5px;
+    background-color:#e88004;
+    border-color: #e88004;
+}
+
+#filtrarNovo:hover {
+    background-color: #c16500;
+    border-color: #c16500;
+}
+
+#iconeHome {
+    color: #ff8500;
+}
+
+
+
+#ordenacao {
+    background-color: #4f6df3;
+    border-color: #4f6df3;
+    margin-top: 72px;
+}
+
+#filtros {
+    background-color:#e88004;
+    border-color: #e88004;
+    
+    float: left;
+    margin-top: 23px;
+    height: 34px;
+}
+#filtros:focus {
+    outline: none;
+}
+#filtros:hover {
+    background-color: #c16500;;
+    border-color: #c16500;;
+}
+
+#gerarRelatorio {
+    background-color:#03af38;
+    border-color: #03af38;
+    
+    float: left;
+    margin-top: 23px;
+    margin-left: 10px;
+    height: 34px;
+}
+#gerarRelatorio:focus {
+    outline: none;
+}
+#gerarRelatorio:hover {
+    background-color: #04862c;
+    border-color: #04862c;
+}

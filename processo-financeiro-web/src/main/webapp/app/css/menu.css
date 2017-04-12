@@ -1,0 +1,62 @@
+/*Alteração de tags existentes*/
+.app-navbar {
+    height: 45px;
+    background: blue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(blue, #71c4ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(blue, #71c4ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(blue, #71c4ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(blue, #71c4ff); /* Standard syntax (must be last) */
+}
+
+.app-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  margin-top: 21px;
+   
+   
+   background: blue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(blue, #71c4ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(blue, #71c4ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(blue, #71c4ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(blue, #71c4ff); /* Standard syntax (must be last) */
+    width: 100%;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    color: #ffffff;
+    z-index: 1030;
+}
+
+.app-footer .versao {
+    float: right;
+    padding-right: 6px;
+}
+
+
+#hicon {
+    background-color: rgba(14,14,14,0);
+    border: none;
+    color: rgba(14,14,14,0);
+    height: 50px;
+    font-size: 31px;
+    transition: 1s;
+    float: left;
+    position: relative;
+    margin-top: -5px;
+    
+}
+#hicon i{
+     color: #ff9b00;
+}
+
+#hicon:hover {
+    color: #ff9b00;
+}
+
+#hicon:hover:focus {
+    position: 1px;
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Central de Configurações</title>
+      <!-- Dependencias css-->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="app/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="app/css/menu.css">
+    <link rel="shortcut icon" type="image/x-icon" href="app/images/favicon.ico">
+    
+    <!-- Dependencias scripts -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+   <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="app/js/processoFinanceiro.js"></script>
+    <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
+
+</head>
+<body ng-app="ProcessoFinanceiro" onload="document.getElementById('tudo').style.opacity='1'">
+    <header ng-include="'app/templates/header.html'"></header>
+    <br/>
+      <div id="tudo">
+        <div id="containerPrincipal">
+
+            <a href="app/pages/listagemPessoas.html" data-buttonrole="" style="cursor:pointer;" class="btn btn-primary botao">
+                <i id="iconeHome" class="fa fa-users  fa-5x buttonicon"></i>
+            <span class="buttontitle">Pessoas</span></a>
+
+             <a href="app/pages/listagemContasPagar.html" data-buttonrole="" style="cursor:pointer;" class="btn btn-primary botao">
+                <i id="iconeHome" class="fa fa-money  fa-5x buttonicon"></i>
+            <span class="buttontitle">Contas a Pagar</span></a>
+
+            <a href="app/pages/listagemContasReceber.html" data-buttonrole="" style="cursor:pointer;" class="btn btn-primary botao">
+                <i id="iconeHome" class="fa fa-line-chart  fa-5x buttonicon"></i>
+            <span class="buttontitle">Contas a Receber</span></a>
+         </div>
+    
+    </div>
+    <footer ng-include="'app/templates/footer.html'"></footer>
+</body>
+</html>

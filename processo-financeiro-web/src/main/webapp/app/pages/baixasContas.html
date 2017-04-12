@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=500, initial-scale=1">
+
+
+  <link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../bower_components/angular-growl-v2/build/angular-growl.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/menu.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+
+
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script src="../../bower_components\jquery\dist\jquery.min.js"></script>
+  <script src="../../bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
+  <script src="../../bower_components\bootstrap-validator\dist\validator.min.js"></script>
+  <script src="../../bower_components\moment/moment.js"></script>
+  <script src="../../bower_components\angular-moment/angular-moment.js"></script>
+  <script src="../../bower_components\jquery-mask-plugin\dist\jquery.mask.min.js"></script>
+
+
+
+
+  <script src="../../bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
+  <script src="../js/processoFinanceiro.js"></script>
+
+  <script src="../js/titulosEditar-controller.js"></script>
+
+
+  <title>Baixa de Título</title>
+</head>
+
+<body data-ng-app="ProcessoFinanceiro" onload="document.getElementById('tudo').style.opacity='1'">
+
+  <header ng-include="'../templates/header.html'"></header>
+
+
+
+  <div id="tudo" data-ng-controller="TitulosCtrlEditar" data-ng-init="init()">
+
+    <h1>Baixa de Título</h1>
+
+    <div class="panel panel-primary" id="containerPrincipal">
+      <div class="panel-heading painel">Título</div>
+      <div class="panel-body">
+
+        <form id="MeuForm" name="MeuForm" data-toggle="validator" role="form">
+          <div class="form-group has-feedback">
+            <label for="dataCriacao">Data de Criação:</label>
+            <input class="form-control data" type="text" ng-model="titulo.dataCriacao" placeholder="XX-XX-XXXX" name="dataCriacao" ng-disabled="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+
+          <div class="form-group has-feedback">
+            <label for="dataVencimento">Data de Vencimento:</label>
+            <input class="form-control data" type="text" ng-model="titulo.dataVencimento" placeholder="XX-XX-XXXX" minlength="10" maxlength="10"
+              name="dataVencimento" ng-disabled="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="cpfCnpj">CPF/CNPJ:</label>
+            <input class="form-control" type="text" ng-model="titulo.cpfCnpj" placeholder="CPF/CNPJ" name="cpfCnpj" ng-disabled="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="valorTitulo">Valor do Título:</label>
+            <input class="form-control" type="text" ng-model="titulo.valorTitulo" placeholder="Valor do Título" name="valorTitulo" ng-disabled="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="numero">Número:</label>
+            <input class="form-control" type="number" ng-model="titulo.numero" placeholder="Número" name="numero" ng-disabled="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="%Juros">% de Juros:</label>
+            <input ng-change="jurosCalculado(porcentagemJuros)" class="form-control" type="text" ng-model="porcentagemJuros" placeholder="% de Juros"
+              name="%Juros"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="%JurosSugerido">% de Juros Sugerido:</label>
+            <input ng-change="jurosCalculado($scope.porcentagemJurosSugerido)" class="form-control" type="text" ng-model="porcentagemJurosSugerido"
+              placeholder="% de Juros Sugerido" name="%JurosSugerido"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="valorJuros">Valor de Juros:</label>
+            <input class="form-control" type="text" ng-model="titulo.valorJuros" placeholder="Valor de Juros" name="valorJuros" ng-disabled="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="valorJurosCalculado">Valor de Juros Calculado:</label>
+            <input ng-change="calculoPorcentagemJuros(titulo.valorJurosCalculado)" class="form-control" type="text" ng-model="titulo.valorJurosCalculado"
+              placeholder="Valor de Juros Calculado" name="valorJurosCalculado"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="valorJurosSugerido">Valor de Juros Sugerido:</label>
+            <input ng-change="calculoPorcentagemJuros(titulo.valorJurosSugerido)" class="form-control" type="text" ng-model="titulo.valorJurosSugerido"
+              placeholder="Valor de Juros Sugerido" name="valorJurosSugerido" ng-disabled="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="%Desconto">% de Desconto:</label>
+            <input ng-change="descontoCalculado(porcentagemDesconto)" class="form-control" type="text" ng-model="porcentagemDesconto"
+              placeholder="% de Desconto" name="%Desconto"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="valorDesconto">Valor de Desconto:</label>
+            <input ng-change="calculoPorcentagemDesconto(titulo.valorDesconto)" class="form-control" type="text" ng-model="titulo.valorDesconto"
+              placeholder="Valor de Desconto" name="valorDesconto"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="dataPagamento">Data de Pagamento:</label>
+            <input ng-change="jurosCalculado($scope.porcentagemJurosSugerido)" class="form-control data" type="text" ng-model="titulo.dataPagamento"
+              placeholder="XX-XX-XXXX" minlength="10" maxlength="10" name="dataPagamento" id="dataPagamento" ng-required="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <label for="valorPago">Valor Pago:</label>
+            <input class="form-control" type="text" ng-model="titulo.valorPago" placeholder="Valor Pago" name="valorPago" ng-disabled="true" ng-required="true"><br>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group">
+            <button id="bsubmit" ng-disabled="MeuForm.$invalid" type="submit" class="btn btn-success" ng-click="alterar(titulo)">Salvar</button>
+            <button type="button" class="btn btn-default" onclick="window.history.go(-1); return false;">Cancelar</button>
+          </div>
+
+
+
+
+
+
+        </form>
+      </div>
+
+
+      <div growl></div>
+
+
+    </div>
+
+  </div>
+
+ 
+  <footer ng-include="'../templates/footer.html'"></footer>
+
+</body>
+
+</html>

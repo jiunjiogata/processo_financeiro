@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="1.0" author="bruno.marchini">
+		<createTable tableName="pessoas">
+			<column name="cpf_cnpj" type="java.sql.Types.VARCHAR(14)">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="nome" type="java.sql.Types.VARCHAR(50)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="data_nascimento" type="java.sql.Types.TIMESTAMP">
+			</column>
+			<column name="cep" type="java.sql.Types.VARCHAR(8)">
+			</column>
+			<column name="logradouro" type="java.sql.Types.VARCHAR(80)">
+			</column>
+			<column name="numero" type="java.sql.Types.INTEGER">
+			</column>
+			<column name="bairro" type="java.sql.Types.VARCHAR(50)">
+			</column>
+			<column name="cidade" type="java.sql.Types.VARCHAR(25)">
+			</column>
+			<column name="estado" type="java.sql.Types.VARCHAR(15)">
+			</column>
+		</createTable>
+	</changeSet>
+
+
+	<changeSet id="1.1" author="bruno.marchini">
+		<createTable tableName="titulos">
+			<column name="data_criacao" type="java.sql.Types.TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="data_vencimento" type="java.sql.Types.TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="cpf_cnpj" type="java.sql.Types.VARCHAR(14)">
+				<constraints nullable="false" foreignKeyName="fk_titulos_pessoas"
+					references="pessoas(cpf_cnpj)" />
+			</column>
+			<column name="numero" type="java.sql.Types.INTEGER"  incrementBy="1"
+				autoIncrement="true" startWith="1">>
+				<constraints primaryKey="true" primaryKeyName="pk_titulos"
+					nullable="false" />
+			</column>
+			<column name="valor_titulo" type="java.sql.Types.DOUBLE">
+				<constraints nullable="false" />
+			</column>
+			<column name="valor_juros" type="java.sql.Types.DOUBLE">
+				<constraints nullable="false" />
+			</column>
+			<column name="valor_juros_calculado" type="java.sql.Types.DOUBLE">
+			</column>
+			<column name="valor_desconto" type="java.sql.Types.DOUBLE">
+			</column>
+			<column name="data_pagamento" type="java.sql.Types.TIMESTAMP">
+			</column>
+			<column name="valor_pago" type="java.sql.Types.DOUBLE">
+			</column>
+			<column name="tipo" type="java.sql.Types.VARCHAR(15)">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+
+	</changeSet>
+	
+
+</databaseChangeLog>
